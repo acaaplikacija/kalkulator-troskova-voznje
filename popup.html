@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="sr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Podešavanja | Kalkulator potrošnje</title>
+    <link rel="stylesheet" href="popup.css" />
+    <script src="popup.js" defer></script>
+</head>
+
+<body>
+    <div id="initialLoading" class="initial-loading" role="status" aria-live="polite">
+        <span class="loading-spinner" aria-hidden="true"></span>
+        <span>Učitavanje aktuelnih cena goriva...</span>
+    </div>
+
+    <main class="settings" id="settingsPanel" hidden>
+        <header class="settings-header">
+            <span class="eyebrow">KALKULATOR POTROŠNJE</span>
+            <h1>Podešavanja vozila</h1>
+            <p>Unesi podatke da bi dobili procenu potrošnje goriva za predložene rute.</p>
+        </header>
+
+        <form id="fuelForm">
+            <div class="field">
+                <label for="fuelConsumption">Prosečna potrošnja</label>
+                <div class="input-wrap">
+                    <input type="number" id="fuelConsumption" min="0.1" step="0.1" placeholder="npr. 7.5" required />
+                    <span>l/100 km</span>
+                </div>
+                <small>Prosečna potrošnja tvog vozila na 100 kilometara.</small>
+            </div>
+
+            <div class="field">
+                <label for="fuelType">Vrsta goriva</label>
+                <select id="fuelType" required>
+                    <option value="petrol">Benzin</option>
+                    <option value="diesel">Dizel</option>
+                </select>
+                <div id="fuelPriceInfo" class="fuel-price-info" aria-live="polite">
+                    <span>Učitavanje cena sa sajta Ministarstva...</span>
+                </div>
+            </div>
+
+            <button type="submit" id="saveButton">Sačuvaj podešavanja</button>
+            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <footer>Ekstenziju napravio Aleksandar Radivojević (<a
+                href="mailto:aca.aplikacija@gmail.com">aca.aplikacija@gmail.com</a>)</footer>
+    </main>
+</body>
+
+</html>
